@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/modern-normalize@1.1.0/modern-normalize.css">
+    <title>Soal 2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            text-align: center;
+            line-height: 50px;
+        }
+        button{
+            width: 100px;
+            height: 50px;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form action="">
+        <h1>Menghitung BMI</h1>
+        <input type="number" class="berat" placeholder="Berat badan"><br>
+        <input type="number" class="tinggi" placeholder="Tinggi badan"><br>
+        <p>Hasil BMI: <span class="hasil"></span></p>
+        <button type="submit">Submit</button>
+
+    </form>
+
+    <script>
+        function hasil(event) {
+            event.preventDefault()
+            let berat_badan = parseFloat(document.querySelector(".berat").value);
+            let tinggi_badan = parseFloat(document.querySelector(".tinggi").value);
+
+            let bmi = berat_badan / (tinggi_badan ** 2);
+            document.querySelector(".hasil").innerText = bmi;
+
+            if (document.querySelector(".hasil").innerText < 15) {
+                alert("Kategori: Berat badan sangat kurang")
+            } else if (document.querySelector(".hasil").innerTex < 18.50) {
+                alert("Kategori: Berat badan kurang (underweight)")
+            } else if (document.querySelector(".hasil").innerText < 24) {
+                alert("Kategori: Normal")
+            } else if (document.querySelector(".hasil").innerText < 30) {
+                alert("Kategori: Kelebihan berat badan (overweight)")
+            } else if (document.querySelector(".hasil").innerText > 29) {
+                alert("Kategori: Obesitas");
+            }
+        }
+        document.querySelector("button").addEventListener("click", hasil);
+    </script>
+</body>
+
+</html>

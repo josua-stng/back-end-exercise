@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soal 1</title>
+    <link rel="stylesheet" href="https://unpkg.com/modern-normalize@1.1.0/modern-normalize.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            text-align: center;
+            line-height: 50px;
+        }
+        button{
+            width: 100px;
+            height: 50px;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: green;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form action="">
+        <h1>Menghitung Nilai </h1>
+        <input type="number" placeholder="nilai-uts" class="uts">
+        <br>
+        <input type="number" placeholder="nilai-tugas" class="tugas">
+        <br>
+        <input type="number" placeholder="nilai-uas" class="uas">
+        <br>
+        <div class="">Hasil: <span class="hasil"></span> </div>
+        <button type="submit">Submit</button>
+
+
+    </form>
+
+    <script>
+        function hasil(event) {
+
+            event.preventDefault()
+            const nilai_uts = parseInt(document.querySelector(".uts").value);
+            const nilai_tugas = parseInt(document.querySelector(".tugas").value);
+            const nilai_uas = parseInt(document.querySelector(".uas").value);
+
+            const uts = (30 / 100) * nilai_uts;
+            const tugas = (40 / 100) * nilai_tugas;
+            const uas = (30 / 100) * nilai_uas;
+
+            nilai_akhir = uts + tugas + uas;
+            document.querySelector(".hasil").innerText = nilai_akhir
+            if (document.querySelector(".hasil").innerText > 79) {
+                alert("Kamu mendapat nilai A");
+            } else if (document.querySelector(".hasil").innerText > 69) {
+                alert("Kamu mendapat nilai B");
+            } else if (document.querySelector(".hasil").innerText > 59) {
+                alert("Kamu mendapat nilai C");
+            } else if (document.querySelector(".hasil").innerText > 39) {
+                alert("kamu mendapat nilai D");
+            } else if (document.querySelector(".hasil").innerText < 39) {
+                alert("Kamu tidak Lulus")
+            }
+        }
+
+
+        document.querySelector("button").addEventListener("click", hasil);
+
+
+
+    </script>
+</body>
+
+</html>
